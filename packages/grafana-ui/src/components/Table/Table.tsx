@@ -65,7 +65,7 @@ function useTableStateReducer({ onColumnResize, onSortByChange, data }: Props) {
               return newState;
             }
 
-            const fieldDisplayName = getFieldDisplayName(field, data);
+            const fieldDisplayName = field.state?.multipleFrames ? field.name : getFieldDisplayName(field, data);
             onColumnResize(fieldDisplayName, width);
           }
         case 'toggleSortBy':
@@ -79,7 +79,7 @@ function useTableStateReducer({ onColumnResize, onSortByChange, data }: Props) {
               }
 
               sortByFields.push({
-                displayName: getFieldDisplayName(field, data),
+                displayName: field.state?.multipleFrames ? field.name : getFieldDisplayName(field, data),
                 desc: sortItem.desc,
               });
             }

@@ -43,8 +43,8 @@ export function getFieldDisplayName(field: Field, frame?: DataFrame, allFrames?:
     return existingTitle;
   }
 
-  const displayName = calculateFieldDisplayName(field, frame, allFrames);
   field.state = field.state || {};
+  const displayName = calculateFieldDisplayName(field, frame, allFrames);
   field.state.displayName = displayName;
 
   return displayName;
@@ -77,6 +77,7 @@ function calculateFieldDisplayName(field: Field, frame?: DataFrame, allFrames?: 
   let frameNamesDiffer = false;
 
   if (allFrames && allFrames.length > 1) {
+    field.state!.multipleFrames = true;
     for (let i = 1; i < allFrames.length; i++) {
       const frame = allFrames[i];
       if (frame.name !== allFrames[i - 1].name) {

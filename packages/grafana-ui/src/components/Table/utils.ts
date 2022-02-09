@@ -81,7 +81,7 @@ export function getColumns(
       Cell,
       id: fieldIndex.toString(),
       field: field,
-      Header: getFieldDisplayName(field, data),
+      Header: field.state?.multipleFrames ? field.name : getFieldDisplayName(field, data),
       accessor: (row: any, i: number) => {
         return field.values.get(i);
       },
