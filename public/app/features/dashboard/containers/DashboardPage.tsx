@@ -141,7 +141,7 @@ export class UnthemedDashboardPage extends PureComponent<Props, State> {
 
     // if we just got dashboard update title
     if (prevProps.dashboard !== dashboard) {
-      document.title = dashboard.title + ' - ' + Branding.AppTitle;
+      document.title = Branding.AppTitle;
     }
 
     if (

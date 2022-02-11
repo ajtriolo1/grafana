@@ -25,12 +25,13 @@ export const Page: PageType = ({ navModel, children, className, ...otherProps })
   const styles = useStyles2(getStyles);
 
   useEffect(() => {
-    if (navModel) {
-      const title = getTitleFromNavModel(navModel);
-      document.title = title ? `${title} - ${Branding.AppTitle}` : Branding.AppTitle;
-    } else {
-      document.title = Branding.AppTitle;
-    }
+    // if (navModel) {
+    //   const title = getTitleFromNavModel(navModel);
+    //   document.title = title ? `${title} - ${Branding.AppTitle}` : Branding.AppTitle;
+    // } else {
+    //   document.title = Branding.AppTitle;
+    // }
+    document.title = Branding.AppTitle;
   }, [navModel]);
 
   return (
